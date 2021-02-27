@@ -1,5 +1,6 @@
 package sorting;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +27,10 @@ public class Main {
 			}
 		}
 		return ci = ci/(array.length-1);
+		
+		
 	}
+	
 	
 	
 //******************************************************************
@@ -39,8 +43,9 @@ public class Main {
 	}
 	
 	public static String formatOutput() {
+		DecimalFormat df = new DecimalFormat("#.00");
 		String output = "";
-		output = bubbleSort() + "-" + array[0];
+		output =  df.format(bubbleSort()) + "-" + array[0];
 		for(int i = 1; i<array.length; i++) {
 			output = output + " " + array[i];
 		}
