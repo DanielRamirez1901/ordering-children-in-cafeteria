@@ -1,31 +1,61 @@
 package sorting;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
-	public static Integer[] array;
+	public static Double[] array;
+	
 
 //********************************************************************
-	public static void bubbleSort() {
+	public static double bubbleSort() {
 		boolean changed = true;
+		double ci = 0;
 		for (int i = 1; i < array.length && changed; i++) {
-			changed = false;
+		 	changed = false;
 			for(int j = 0; j < array.length-i; j++) {
 				if(array[j] > array[j+1]) {
-					int temp = array[j];
+					ci++;
+					double temp = array[j];
 					array[j] = array[j+1];
 					array[j+1] = temp;
 					changed = true;
 				}
 			}
 		}
+		return ci = ci/(array.length-1);
 	}
+	
+	
 //******************************************************************
-
+	public static Double [] convertToDouble(String[] arrayString) {
+		Double arrayDouble [] = new Double[arrayString.length];
+		for(int i = 0; i<arrayDouble.length; i++) {
+			arrayDouble [i] = Double.parseDouble(arrayString[i]);
+		}
+		return arrayDouble;
+	}
+	
+	public static String formatOutput() {
+		String output = "";
+		output = bubbleSort() + "-" + array[0];
+		for(int i = 1; i<array.length; i++) {
+			output = output + " " + array[i];
+		}
+		return output;
+	}
+	
 	public static void main(String[] args) {
-		array = new Integer[] {7,3,9,2,5,1,6,4,8}; 
-		System.out.println(Arrays.toString(array));
-		bubbleSort();
-		System.out.println(Arrays.toString(array));
+		Scanner sc = new Scanner(System.in);
+		int caseNumber = Integer.parseInt(sc.nextLine());
+		while(caseNumber>0) {
+			String caseLine = sc.nextLine();
+			String [] arrayString = caseLine.split(" ");
+			array = convertToDouble(arrayString);
+			System.out.println(formatOutput());
+			caseNumber--;
+		}
 	}
 }	
