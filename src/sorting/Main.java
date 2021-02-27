@@ -1,9 +1,7 @@
 package sorting;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.text.DecimalFormatSymbols;
 import java.util.Scanner;
 
 public class Main {
@@ -11,11 +9,12 @@ public class Main {
 	
 
 //********************************************************************
+	
 	public static double bubbleSort() {
 		boolean changed = true;
 		double ci = 0;
 		for (int i = 1; i < array.length && changed; i++) {
-		 	changed = false;
+			changed = false;
 			for(int j = 0; j < array.length-i; j++) {
 				if(array[j] > array[j+1]) {
 					ci++;
@@ -27,13 +26,10 @@ public class Main {
 			}
 		}
 		return ci = ci/(array.length-1);
-		
-		
 	}
 	
-	
-	
 //******************************************************************
+	
 	public static Double [] convertToDouble(String[] arrayString) {
 		Double arrayDouble [] = new Double[arrayString.length];
 		for(int i = 0; i<arrayDouble.length; i++) {
@@ -42,8 +38,11 @@ public class Main {
 		return arrayDouble;
 	}
 	
+//******************************************************************
+	
 	public static String formatOutput() {
-		DecimalFormat df = new DecimalFormat("#.00");
+		DecimalFormatSymbols dfs = new DecimalFormatSymbols();dfs.setDecimalSeparator('.');
+		DecimalFormat df = new DecimalFormat(".##",dfs);
 		String output = "";
 		output =  df.format(bubbleSort()) + "-" + array[0];
 		for(int i = 1; i<array.length; i++) {
@@ -52,6 +51,9 @@ public class Main {
 		return output;
 	}
 	
+//*******************************************************************
+	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int caseNumber = Integer.parseInt(sc.nextLine());
