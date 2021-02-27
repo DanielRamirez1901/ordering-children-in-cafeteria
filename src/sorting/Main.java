@@ -1,12 +1,11 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+package sorting;
+
+import java.util.Arrays;
 
 public class Main {
-	
-	ArrayList <Double> age;
 	public static Integer[] array;
 
-	
+//********************************************************************
 	public static void bubbleSort() {
 		boolean changed = true;
 		for (int i = 1; i < array.length && changed; i++) {
@@ -21,10 +20,12 @@ public class Main {
 			}
 		}
 	}
+//******************************************************************
+
 	public static void main(String[] args) {
-		array = new Integer[] {7,3,9,2,5,1,6,4,8};
+		array = new Integer[] {7,3,9,2,5,1,6,4,8}; 
+		System.out.println(Arrays.toString(array));
 		bubbleSort();
-
+		System.out.println(Arrays.toString(array));
 	}
-
-}
+}	
