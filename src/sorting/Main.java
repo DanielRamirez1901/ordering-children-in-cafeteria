@@ -55,10 +55,10 @@ public class Main {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
 		int caseNumber = Integer.parseInt(sc.nextLine());
-		
+
 		while(caseNumber>0) {
 			String caseLine = sc.nextLine();
 			String [] arrayString = caseLine.split(" ");
